@@ -1,0 +1,4 @@
+
+INSERT INTO `jobboard`.`company` (`user_id`, `name`, `summary`, `website`, `email`, `datecreation`, `adresse`, `employees`, `facebook`, `google`, `twitter`, `instagram`) VALUES ('1', 'NTIC', 'Centre de formation', 'https://www.ntic-center-corporation.com', 'ntic@gmail.com', '2019-08-14 16:55:40', 'Sain-Denis', '15', 'https://www.facebook.com/', 'https://www.google.com/', 'https://www.twiter.com/', 'https://www.instagram.com/');
+SELECT LAST_INSERT_ID();
+SELECT `id`, `user_id`, `name`, `summary`, `website`, `email`, `datecreation`, `adresse`, `employees`, `facebook`, `google`, `twitter`, `instagram` FROM `jobboard`.`company` WHERE  `id`=1;

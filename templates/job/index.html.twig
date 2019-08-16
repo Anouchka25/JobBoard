@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    {{ include('includes/part1home.html.twig') }}
+   {#  {{ include('includes/features.html.twig') }} #}
+    <section class="jobs">
+    <div class="container">
+        <div class="row heading">
+            <h2>Emplois récents</h2>
+            <p>Trouvez l'emploi que vous méritez</p>
+        </div>
+        <div class="companies">
+         {% for job in jobs %}
+            <div class="company-list">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="company-logo">
+                            <img src="{{ asset('public/images/' ~ job.company.getLogo()) }}" class="img-responsive" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-10">
+                        <div class="company-content">
+                            <h3><a href="{{ path('job_show', {slug: job.slug}) }}">
+                    {{ job.title }}
+                </a>
+                <span class="full-time">{{ job.contrat }}</span>
+                {# <span class="part-time">Temps partiel</span>
+                <span class="freelance">Freelance</span>
+                <span class="internship">Stage</span> #}
+                </h3>
+                            <p>
+                            <span class="date_pub"><i class="fa fa-calendar"></i> {{ job.publishedAt ? job.publishedAt|date('Y-m-d H:i:s') : '' }}</span>
+                            <span class="company-name"><i class="fa fa-briefcase"></i>{{ job.company }}</span>
+                            <span class="company-location"><i class="fa fa-map-marker"></i> {{ job.adresse }}</span>
+                            <span class="package"><i class="fa fa-money"></i>{{ job.salary }}€</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% else %}
+             <div class="company-list">
+                <div class="row">
+                    <p>Pas d'emplois trouvés </p>
+                </div>
+                
+            </div>
+
+             {% endfor %}
+            
+            
+        </div>
+        <div class="row">
+            <input type="button" class="btn brows-btn" value="Brows All Jobs" />
+        </div>
+    </div>
+</section>
+    {{ include('includes/testimonials.html.twig') }}
+    {{ include('includes/members_cards.html.twig') }}
+    {{ include('includes/newsletter.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+
+
+<section class="features">
+    <div class="container">
+    {% for feature in features %}
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-dial"></span></span>
+                <h3>{{ feature.titre1 }}</h3>
+                <p>{{ feature.description1 }}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-search"></span></span>
+                <h3>{{ feature.titre2 }}</h3>
+                <p>{{ feature.description2 }}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-printer"></span></span>
+                <h3>{{ feature.titre3 }}</h3>
+                <p>{{ feature.description3 }}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-dial"></span></span>
+                <h3>{{ feature.titre4 }}</h3>
+                <p>{{ feature.description4 }}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-search"></span></span>
+                <h3>{{ feature.titre5 }}</h3>
+                <p>{{ feature.description5 }}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4">
+            <div class="features-content">
+                <span class="box1"><span aria-hidden="true" class="icon-printer"></span></span>
+                <h3>{{ feature.titre6 }}</h3>
+                <p>{{ feature.description6 }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>

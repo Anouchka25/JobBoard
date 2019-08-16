@@ -1,0 +1,41 @@
+   <h1>Job index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Content</th>
+                <th>PublishedAt</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>
+                <a href="{{ path('job_show', {slug: job.slug}) }}">
+                    {{ job.title }}
+                </a>
+                </td>
+                <td>{{ job.summary }}</td>
+                <td>{{ job.content }}</td>
+                <td>{{ job.publishedAt ? job.publishedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ job.user }}</td>
+                <td>
+                    <a href="{{ path('job_show', {'slug': job.slug}) }}">show</a>
+                  {#  <a href="{{ path('job_edit', {'slug': job.slug}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('job_new') }}">Create new</a>

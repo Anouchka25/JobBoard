@@ -1,0 +1,21 @@
+easy_admin:
+    
+    site_name: Administration JobBoard
+    entities:
+        # List the entity class name you want to manage
+        Job:
+          class: App\Entity\Job
+        Company:
+          class: App\Entity\Company
+        Feature:
+          class: App\Entity\Feature
+        User:
+          class: App\Entity\User
+
+    #Action à rajouter dans toutes les entités
+    list:
+      actions: 
+        - { name: 'show', icon: 'eye', label: false, title: 'Voir' }
+        - { name: 'edit', icon: 'pencil', label: false, title: 'Modifier' }
+        - { name: 'disable', icon: 'ban', label: false, title: 'Désactiver' }
+        - { name: 'delete', icon: 'trash', label: false, title: 'Supprimer' }        

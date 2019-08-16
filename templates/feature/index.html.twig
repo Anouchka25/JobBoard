@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feature index{% endblock %}
+
+{% block body %}
+    <h1>Feature index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre1</th>
+                <th>Description1</th>
+                <th>Titre2</th>
+                <th>Description2</th>
+                <th>Titre3</th>
+                <th>Description3</th>
+                <th>Titre4</th>
+                <th>Description4</th>
+                <th>Titre5</th>
+                <th>Description5</th>
+                <th>Titre6</th>
+                <th>Description6</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feature in features %}
+            <tr>
+                <td>{{ feature.id }}</td>
+                <td>{{ feature.titre1 }}</td>
+                <td>{{ feature.description1 }}</td>
+                <td>{{ feature.titre2 }}</td>
+                <td>{{ feature.description2 }}</td>
+                <td>{{ feature.titre3 }}</td>
+                <td>{{ feature.description3 }}</td>
+                <td>{{ feature.titre4 }}</td>
+                <td>{{ feature.description4 }}</td>
+                <td>{{ feature.titre5 }}</td>
+                <td>{{ feature.description5 }}</td>
+                <td>{{ feature.titre6 }}</td>
+                <td>{{ feature.description6 }}</td>
+                <td>
+                    <a href="{{ path('feature_show', {'id': feature.id}) }}">show</a>
+                    <a href="{{ path('feature_edit', {'id': feature.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('feature_new') }}">Create new</a>
+{% endblock %}
