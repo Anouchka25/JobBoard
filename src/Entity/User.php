@@ -63,11 +63,21 @@ class User implements UserInterface, \Serializable
      */
     private $roles = [];
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Company", cascade={"persist", "remove"})
+     */
+    private $company;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="user")
+     */
+    private $jobs;
 
     public function __construct()
     {
         $this->jobs = new ArrayCollection();
     }
+
 
 
 
@@ -202,6 +212,49 @@ class User implements UserInterface, \Serializable
     public function __toString() 
     {
        return $this->fullName; 
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Job[]
+     */
+    public function getJobs(): Collection
+    {
+        return $this->jobs;
+    }
+
+    public function addJob(Job $job): self
+    {
+        if (!$this->jobs->contains($job)) {
+            $this->jobs[] = $job;
+            $job->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJob(Job $job): self
+    {
+        if ($this->jobs->contains($job)) {
+            $this->jobs->removeElement($job);
+            // set the owning side to null (unless already changed)
+            if ($job->getUser() === $this) {
+                $job->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 }

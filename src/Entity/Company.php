@@ -88,7 +88,7 @@ class Company
     private $logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Job", mappedBy="company")
+     * @ORM\OneToMany(targetEntity="App\Entity\Job",cascade={"persist", "remove"}, mappedBy="company")
      */
     private $jobs;
 
@@ -251,6 +251,16 @@ class Company
     {
        return $this->name; 
     }
+
+   /*  public function __toString()
+    {
+        $format = "Company (id: %s, name: %s, summary: %s,
+         website: %s, email: %s, datecreation: %s, adresse: %s, employees: %s, facebook: %s, google: %s
+         , twitter: %s, instagram: %s, user: %s, logo: %s, jobs: %s)\n";
+        return sprintf($format, $this->id, $this->name, $this->summary, $this->website, $this->email, $this->datecreation->format(\Datetime::ISO8601)
+        , $this->adresse, $this->employees, $this->facebook, $this->google, $this->twitter, $this->instagram
+        , $this->user, $this->logo, $this->jobs);
+    } */
 
     public function getLogo(): ?string
     {

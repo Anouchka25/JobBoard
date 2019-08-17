@@ -64,6 +64,11 @@ class Job
      */
     private $company;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="jobs")
+     */
+    private $user;
+
 
 
     public function getId(): ?int
@@ -169,7 +174,8 @@ class Job
 
     public function __toString() 
     {
-       return $this->title; 
+       $format = "Job (id: %s, title: %s, slug: %s, summary: %s, content: %s, publishedAt: %s, salary: %s, adresse: %s, contrat: %s, company: %s)\n";
+        return sprintf($format, $this->id, $this->title, $this->slug, $this->summary, $this->content, $this->publishedAt->format(\Datetime::ISO8601), $this->salary, $this->adresse, $this->contrat, $this->company);
     }
 
     public function getCompany(): ?Company
@@ -180,6 +186,18 @@ class Job
     public function setCompany(?Company $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
