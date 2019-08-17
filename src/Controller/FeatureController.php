@@ -19,8 +19,10 @@ class FeatureController extends AbstractController
      * @Route("/", name="feature_index", methods={"GET"})
      */
     public function index(FeatureRepository $featureRepository): Response
-    {
+    {   
+
         return $this->render('includes/features.html.twig', [
+            'jobs' => $job,
             'features' => $featureRepository->findAll(),
         ]);
     }

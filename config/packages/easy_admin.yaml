@@ -17,5 +17,6 @@ easy_admin:
       actions: 
         - { name: 'show', icon: 'eye', label: false, title: 'Voir' }
         - { name: 'edit', icon: 'pencil', label: false, title: 'Modifier' }
+        #- { name: 'duplicate', icon: 'pencil', label: false, title: 'Dupliquer' }
         - { name: 'disable', icon: 'ban', label: false, title: 'Désactiver' }
         - { name: 'delete', icon: 'trash', label: false, title: 'Supprimer' }        

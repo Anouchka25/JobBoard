@@ -5,7 +5,8 @@
 {% block body %}
 
     {{ include('includes/part1home.html.twig') }}
-   {#  {{ include('includes/features.html.twig') }} #}
+    {# {{ include('includes/features.html.twig') }} #}
+    {{ dump() }}
     <section class="jobs">
     <div class="container">
         <div class="row heading">
@@ -18,7 +19,8 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
                         <div class="company-logo">
-                            <img src="{{ asset('public/images/'~job.company.getLogo()) }}" class="img-responsive" alt="" title="{{ job.company }}" />
+                           {#  <img src="{{ asset('public/images/'~job.company.getLogo()) }}" class="img-responsive" alt="" title="{{ job.company }}" /> #}
+                            <img src="{{ asset('images/logo-nticcc.png') }}" class="img-responsive" alt="" title="{{ job.company }}" />
                         </div>
                     </div>
                     <div class="col-md-10 col-sm-10">
