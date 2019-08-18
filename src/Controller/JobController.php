@@ -26,6 +26,17 @@ class JobController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/all_jobs", name="all_jobs", methods={"GET"})
+     */
+    public function all_jobs(JobRepository $jobRepository): Response
+    {
+
+        return $this->render('job/all_jobs.html.twig', [
+            'jobs' => $jobRepository->findAll(),
+        ]);
+    }
+
 
     /**
      * @Route("/{slug}", name="job_show", methods={"GET"})

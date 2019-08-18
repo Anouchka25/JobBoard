@@ -50,6 +50,10 @@ class Resume
      */
     private $twitter;
 
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $linkedin;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -78,10 +82,7 @@ class Resume
      */
     private $slogan;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $linkedin;
+
 
     /**
      * @ORM\Column(type="string", length=20)

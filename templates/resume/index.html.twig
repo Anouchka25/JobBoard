@@ -21,15 +21,15 @@
 				<div class="row">
 					<div class="basic-information">
 						<div class="col-md-3 col-sm-3">
-						 <img src="{{ asset('template_bootstrap/img/microsoft.png') }}" alt="" class="img-responsive">
+						 <img src="{{ asset('template_bootstrap/img/user.jpg') }}" alt="" class="img-responsive">
 						</div>
 						<div class="col-md-9 col-sm-9">
 							<div class="profile-content">
-									<h2>{{ resume.fullName }}<span>{{ resume.slogan }}</span></h2>
+									<h2>{{ resume.user.fullName }}<span>{{ resume.slogan }}</span></h2>
 									<p>{{ resume.entreprise }}</p>
 									<ul class="information">
-										<li><span>Nom complet:</span>{{ resume.fullName }}</li>
-                                        <li><span>Mail:</span>{{ resume.email }}</li>
+										<li><span>Nom complet:</span>{{ resume.user.fullName }}</li>
+                                        <li><span>Mail:</span>{{ resume.user.email }}</li>
                                         <li><span>Mobile:</span>{{ resume.mobile }}</li>
 										<li><span>Entreprise:</span>{{ resume.entreprise }}</li>
 										<li><span>Née:</span>{{ resume.datenaissance|date('D/M/Y') }}</li>

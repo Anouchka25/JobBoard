@@ -1,46 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Job{% endblock %}
+{% block title %}Détail du Job{% endblock %}
 
 {% block body %}
-    <h1>Job</h1>
+    <h1>Détail du Job: {{ job.title }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ job.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ job.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ job.slug }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
+                <th>Résumé</th>
                 <td>{{ job.summary }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Détail</th>
                 <td>{{ job.content }}</td>
             </tr>
             <tr>
                 <th>PublishedAt</th>
-                <td>{{ job.publishedAt ? job.publishedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ job.publishedAt ? job.publishedAt|date('d/m/y') : '' }}</td>
             </tr>
             <tr>
-                <th>Author</th>
-                <td>{{ job.author }}</td>
-            </tr>
         </tbody>
     </table>
+    <a href="{{ path('job_show', {slug: job.slug}) }}"><button type="submit" class="btn brows-btn" name="Postuler">Postulez à ce Job</button></a>
 
-    <a href="{{ path('job_index') }}">back to list</a>
-
-    <a href="{{ path('job_edit', {'id': job.id}) }}">edit</a>
-
-    {{ include('job/_delete_form.html.twig') }}
+    <a href="{{ path('all_jobs') }}">Retour</a>
 {% endblock %}
